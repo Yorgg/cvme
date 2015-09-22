@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "cvme"
   spec.version       = Cvme::VERSION
   spec.authors       = ["Jon"]
-  spec.email         = ["jyorg@outlook.com"]
+  spec.email         = ["jyorgg@gmail.com"]
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.8"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec" 
 end

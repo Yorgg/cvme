@@ -1,5 +1,7 @@
 require "cvme/version"
 
 module Cvme
-  # Your code goes here...
+  def method_name
+  	'ok'
+  end
 end
