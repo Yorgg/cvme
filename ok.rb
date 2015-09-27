@@ -1,8 +1,7 @@
 require_relative 'lib/cvme'
-include Cvme
-require 'erb'
+ 
 
-Document.new do 
+Cvme.create do 
   header do 
     user     'Jon Yorg'
     email    'jyorgg@gmail.com'
@@ -11,10 +10,7 @@ Document.new do
     province 'BC'
     phone    '7787132145'
   end
-end
 
-
-=begin
   group 'jobs' do  
     entry 'Marketing Coordinator' do
       date '2008-2015'
@@ -28,5 +24,5 @@ end
       description 'This is a goal + task management tool'
   	end
   end
-=end
+end
  
