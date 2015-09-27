@@ -1,3 +1,39 @@
-<% @groups.each do  |group| %>
-<p> <%= group.name %> </p>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= @head.user %> - Resume</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+    <h1><%= @head.user %></h1>
+	<p> <%= @head.address %> </p>
+	<p> <%= @head.city %>, <%= @head.province %>,  <%=@head.country %> </p>
+ 	<p> <%= @head.email %> </p>
+ 
+	<% @groups.each do  |group| %>
+      <h2> <%= group.name %> </h2>
+      
+      <% group.entries.each do  |entry| %>
+    	 <p class="entry-title"><%=entry.name %> </p>
+
+    	<% entry.info.each do |name, text| %>
+    	  <% if name == :date %>
+            <p class="date"> <%= text %></p>
+          <% end %>
+
+          <% if name == :description %>
+    	    <p class="description"> <%=text%></p>
+    	  <% end %>
+
+    	  <% if (/bullet/ =~ name.to_s) %>
+    	    <li> <%=text%></li>
+    	  <% end %>
+    	<% end %>
+	  
+	  <% end %>	 
+	<% end %>
+
+   </body>
+</html>

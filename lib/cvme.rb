@@ -7,7 +7,6 @@ require 'erb'
 
 module Cvme
   def self.create(&block)
-  	
   	d = Document.new(&block)
   	file = File.open("lib/template.html.erb", 'r')
   	erb = ERB.new(file.read)
@@ -15,5 +14,6 @@ module Cvme
   	file = File.open('lib/cv.html', 'w')
   	file.puts erb.result(d.get_binding)
   	file.close
+  	d
   end
 end
