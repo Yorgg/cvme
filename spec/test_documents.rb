@@ -13,8 +13,8 @@ module Cvme
         entry 'Cleaner' do
           date '2008-2015'
           description 'Basic cleaning duties'
-          bullet 'used windex'
-          bullet 'waxed floors'
+          b1 'used windex'
+          b2 'waxed floors'
         end
 
         entry 'Garbage Man' do

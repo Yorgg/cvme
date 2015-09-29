@@ -3,37 +3,57 @@
   <head>
     <meta charset="UTF-8">
     <title><%= @head.user %> - Resume</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheet.css">
   </head>
   
   <body>
-    <h1><%= @head.user %></h1>
-	<p> <%= @head.address %> </p>
-	<p> <%= @head.city %>, <%= @head.province %>,  <%=@head.country %> </p>
- 	<p> <%= @head.email %> </p>
+  <div class="container">
+    <div class="top" >
+    </div>
+
+    <header>
+      <div class="row">
+        <div class="col-left">
+          <h1><%= @head.user %></h1>
+        </div>
+        <div class="col-right">
+	      <p><%= @head.address %></p>
+	      <p><%= @head.city %>, <%= @head.province %>, <%=@head.country %></p>
+ 	      <p><%= @head.phone %></p>
+ 	      <p><%= @head.email %></p>
+  	    </div>
+ 	  </div>
+ 	  <br>
+    </header>
  
-	<% @groups.each do  |group| %>
-      <h2> <%= group.name %> </h2>
-      
-      <% group.entries.each do  |entry| %>
-    	 <p class="entry-title"><%=entry.name %> </p>
+    <% @groups.each do  |group| %>
+    
+    <div class="row">
+	  <div class="col-left">
+        <h2> <%= group.name %> </h2>
+      </div>
 
-    	<% entry.info.each do |name, text| %>
-    	  <% if name == :date %>
-            <p class="date"> <%= text %></p>
-          <% end %>
-
-          <% if name == :description %>
-    	    <p class="description"> <%=text%></p>
-    	  <% end %>
-
-    	  <% if (/bullet/ =~ name.to_s) %>
-    	    <li> <%=text%></li>
-    	  <% end %>
-    	<% end %>
-	  
-	  <% end %>	 
+      <div class="col-right">
+        <hr>
+        <% group.entries.each do  |entry| %>
+    	  <p class="title"><%=entry.name %> </p>
+          <div class="details">
+    	    <% entry.info.each do |name, text| %>
+    	      <% if name == :date %>
+                <p class="date"><%= text %></p>
+              <% elsif (/b\d+/ =~ name.to_s) %>
+    	        <ul> <li><%=text%></li></ul>
+    	      <% elsif name == :description %>
+    	        <p class="description"><%=text%></p>
+    	      <% else %>
+    	      <p class="description"><%=text%></p>
+    	      <% end %>
+    	    <% end %>
+    	  </div>
+	    <% end %>
+	  </div>	 
 	<% end %>
-
-   </body>
+    </div>
+  </div>
+  </body>
 </html>
