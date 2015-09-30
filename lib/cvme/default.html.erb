@@ -55,14 +55,14 @@
     <% @groups.each do  |group| %>
     
     <div class="row">
-	  <div class="col-left">
+	    <div class="col-left">
         <h2> <%= group.name %> </h2>
       </div>
 
       <div class="col-right">
         <hr>
         <% group.entries.each do  |entry| %>
-    	  <p class="title"><%=entry.name %> </p>
+    	  <p class="title"> <%=entry.name %> </p>
           <div class="details">
     	    <% entry.info.each do |name, text| %>
     	      <% if name == :date %>

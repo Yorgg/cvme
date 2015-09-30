@@ -1,9 +1,7 @@
 require 'spec_helper'
 
-describe Cvme do
-  let :document do 
-    document1()
-  end
+describe Object do
+  let(:document) {document1()}
   
   it 'has a version number' do
     expect(Cvme::VERSION).not_to be nil
@@ -18,12 +16,12 @@ describe Cvme do
   end
   
   it 'creates instance variables for header object' do
-    expect(document.head.user).to eq     'Franky Jones'
-    expect(document.head.email).to eq    'frank@gmail.com'
-    expect(document.head.address).to eq  '8888 10th ave'
-    expect(document.head.city).to eq     'Peace Ville'
-    expect(document.head.state).to eq 'BC'
-    expect(document.head.phone).to eq    '778999888'
+    expect(document.head.user).to eq    'Franky Jones'
+    expect(document.head.email).to eq   'frank@gmail.com'
+    expect(document.head.address).to eq '8888 10th ave'
+    expect(document.head.city).to eq    'Peace Ville'
+    expect(document.head.state).to eq   'BC'
+    expect(document.head.phone).to eq   '778999888'
   end
 
   it 'creates two groups' do
@@ -45,6 +43,5 @@ describe Cvme do
 
   it 'creates an entry inside the group' do
   end
-  
   
 end
