@@ -2,9 +2,10 @@ require 'cvme'
 
 #Choose a path for the location of outputted HTML file.
 #For example: html_out = '/Users/user/desktop/cv.html'
-html = '/Users/Yorg/desktop/cv.html'
+html = ''
 
-#choose the template name (if you create your own)
+#If you create another template, change the template name.
+#Otherwise leave it as default.
 template = 'default'
  
 Cvme.create(html, template) do 
