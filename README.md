@@ -33,7 +33,7 @@ After installing the gem, create a new .rb file and require the gem:
 
 Next, call the create method on the Cvme module:
 
-```
+```ruby
 Cvme.create(html, 'default') do 
    
 end
@@ -52,7 +52,7 @@ The **block** is where your code will go.
 Your personal information goes in the header block.
 There are currently 7 reserved methods (user, email etc...) that you can use as seen below:
 
-```
+```ruby
   header do 
     user    'Jean Luc Picard'
     email   'jean@gmail.com'
@@ -66,15 +66,15 @@ There are currently 7 reserved methods (user, email etc...) that you can use as 
 
 You can add more methods in the header.rb file: `lib/cvme/header.rb`
 
-**Note:** these methods are reserved, do not reuse them later in the application.  
+**Note:** these methods are reserved, do not use them outside the header block.  
 
 ###Group
 
-Groups are categories and create structure for the CV template.
+Groups create structure for the CV template.
 
 You can name your group whatever you want.  In a CV you would typically see something like this: 
 
-```
+```ruby
 group 'Education' do
 end
 
@@ -94,7 +94,7 @@ Entries are items that go inside a group.
 
 For example:
 
-```
+```ruby
   group 'Work experience' do  
     entry 'Captain of the USS Stargazer' do
       date '2333-2356'
@@ -105,7 +105,7 @@ For example:
   end
 ```
 
-Reserved methods inside the Entry block:
+There are *three reserved methods* inside the Entry block:
 
 **date** => the date, or start and end dates of the entry.
 
@@ -120,7 +120,7 @@ You can also add any other method name and it will be treated as a description.
 
 [the html it generates](https://htmlpreview.github.io/?https://gist.githubusercontent.com/Yorgg/1f578894933a7d2ded47/raw/c86186f21566c2d90f63e9c490bf8761f5ae2b47/CVTemplate.html) 
 
-```
+```ruby
 require 'cvme'
 
 html = '/Users/user/desktop/cv.html'
@@ -179,11 +179,6 @@ Cvme.create(html, template) do
   end
 end
 ```
-
-
-
-
-
 
 ## Development
 
