@@ -1,5 +1,4 @@
 module Cvme 
-
   class Document
   	attr_accessor :head, :groups 
   	def initialize(*params, &block)
