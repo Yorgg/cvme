@@ -10,9 +10,9 @@ module Cvme
                                #Document, Header, Group and Entry objects
 
     template_path = "cvme/templates/#{template_name}.html.erb"
-    template = create_template(get_path template_path)
+    template = create_template(get_path(template_path)) #creates ERB file
     create_html(doc, creation_path, template) #generates the html file
-    doc #return document for unit testing
+    doc #return document for testing
   end
   
   private
@@ -22,15 +22,10 @@ module Cvme
   end
 
   def self.create_template(path)
-    template = File.open(path, 'r')
-    erb = ERB.new(template.read)
-    template.close
-    erb
+     ERB.new(File.read(path))
   end
   
   def self.create_html(doc, path, template)
-    html = File.open(path, 'w')
-    html.puts template.result(doc.get_binding)
-    html.close
+    File.write(path, template.result(doc.get_binding))
   end
 end

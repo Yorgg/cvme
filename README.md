@@ -1,3 +1,5 @@
+#CVME
+
 CVME is a simple DSL that generates HTML CV/resume templates.  
 
 The generated HTML page can then be converted to PDF by a web browser or other software.
@@ -24,7 +26,158 @@ Or install it yourself as:
 
 ## Usage
 
-#coming soon
+
+###Setup
+
+After installing the gem, create a new .rb file and require the gem:
+
+```require 'cvme'```
+
+The Cvme module has a create method which accepts a block:
+
+```require 'cvme'```
+
+   Cvme.create(html, 'default') do 
+   
+   end```
+
+The first argument is the path of the outputted HTML file.
+For example: `html = '/Users/user/desktop/cv.html'` would create the file on the user's desktop. 
+
+The second argument is the name of the template you want to use.  Leave this as default unless you create your own template in the templates directory:  'lib/cvme/templates'
+
+###Header (personal info)
+
+Your personal information goes in the header block.
+There are currently 7 reserved methods (user, email etc...) that you can use as seen below:
+
+```
+  header do 
+    user    'Jean Luc Picard'
+    email   'jean@gmail.com'
+    address '12 Rue de montagne'
+    city    'La Barre'
+    state   'Franche-Comté'
+    country 'France'
+    phone   '1286493820'
+  end
+```
+
+You can add more methods in the header.rb file: `lib/cvme/header.rb`
+
+**Note:** these methods are reserved, do not reuse them later in the application.  
+
+###Group
+
+Groups are categories and create structure for the CV template.
+
+You can name your group whatever you want.  In a CV you would typically see something like this: 
+
+```
+group 'Education' do
+end
+
+group 'Work experience' do  
+end
+
+group 'Projects' do
+end
+
+group 'Interests' do
+end
+```
+
+###Entries 
+
+Entries are items that go inside a group.  
+
+For example:
+
+```
+  group 'Work experience' do  
+    entry 'Captain of the USS Stargazer' do
+      date '2333-2356'
+      description 'Commanding officer on the USS Stargazer'
+      b1 'Defended the Stargazer from over 12 Cardassian attacks'
+      b2 'Managed relations with the Cardassians and Klingons' 
+    end
+  end
+```
+
+Reserved methods inside the Entry block:
+
+**date** => the date, or start and end dates of the entry.
+**description** => for text  
+**b1, b2, b3, b4, b4 (and so on...)** => for bullet points
+
+You can also add any other method name and it will be treated as a description. 
+
+###Example:
+
+```
+require 'cvme'
+
+html = '/Users/user/desktop/cv.html'
+template = 'default'
+ 
+Cvme.create(html, template) do 
+  header do 
+    user    'Jean Luc Picard'
+    email   'jean@gmail.com'
+    address '12 Rue de montagne'
+    city    'La Barre'
+    state   'Franche-Comté'
+    country 'France'
+    phone   '1286493820'
+  end
+
+  group 'Work experience' do  
+    entry 'Captain - USS Enterprise-D' do
+      date '2364-'
+      description 'Captain of the latest galaxy class starship.'
+      b1 'Evaded multiple Borg attacks'
+      b2 'Succesfully held the the Romulan-Klingon border'
+      b3 'Managed relations with Q'
+      b4 'Lived on the planet Kataan for 40 years'
+    end
+
+    entry 'Lieutenant Commander/Captain - USS Stargazer' do
+      date '2333-2356'
+      description 'Commanding officer on the USS Stargazer'
+      b1 'Defended the Stargazer from over 12 Cardassian attacks'
+      b2 'Managed relations with Cardassians, Ferengi, Klingons, and Vulcans'
+    end
+  end
+
+  group 'Projects' do
+    entry 'Simulated Universe' do
+      date '2353'
+      description 'Helped in the creation of a simulated universe for Dr. Moriarty and his wife'
+    end  
+    entry 'Archeology: Uncovered a 21st century DSL written in Ruby' do
+      date '2355'
+      url  "<a href='https://github.com/Yorgg/cvme'>view</a>"
+    end
+  end
+
+  group 'Interests' do  
+    entry ' ' do 
+      b1 'Fencing'
+      b2 'Racquetball'
+      b3 'Equine sports'
+      b4 'Flute playing'
+      b4 'Archeology'
+      b5 'Latin'
+      b6 'Shakespeare'
+    end
+  end
+end
+```
+
+
+
+
+
 
 ## Development
 
