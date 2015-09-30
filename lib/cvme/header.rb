@@ -1,19 +1,12 @@
 module Cvme
-  class Header < Document
-    TYPE = [:user, 
-            :address,
-            :city,
-            :state,
-            :country, 
-            :phone, 
-            :email 
-  		     ]
-    attr_accessor *TYPE
+  class Header
+
+    #add more attributes if you like:
+    ATTR = %i{user address city state country phone email}
+    
+    attr_accessor *ATTR
+    
     def initialize
     end	
-
-    def self.attributes
-      TYPE
-    end
   end
 end

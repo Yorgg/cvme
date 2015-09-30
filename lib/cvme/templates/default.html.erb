@@ -55,7 +55,7 @@
     <% @groups.each do  |group| %>
     
     <div class="row">
-    <div class="col-left">
+      <div class="col-left">
         <h2> <%= group.name %> </h2>
       </div>
 
@@ -68,7 +68,7 @@
             <% if name == :date %>
               <p class="date"><%= text %></p>
             <% elsif (/b\d+/ =~ name.to_s) %>
-              <ul> <li><%=text%></li></ul>
+              <ul><li><%=text%></li></ul>
             <% elsif name == :description %>
               <p class="description"><%=text%></p>
             <% else %>

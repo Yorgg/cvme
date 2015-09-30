@@ -1,9 +1,10 @@
 module Cvme 
   class Document
     attr_accessor :head, :groups 
+
     def initialize(*params, &block)
       @head    = Header.new
-      @groups  = []
+      @groups  = []  
       instance_eval &block
     end
 
@@ -23,7 +24,7 @@ module Cvme
         create_entry(param)
         block.call
       else
-        create_header(name, param) || create_entry_item(name,param)
+        update_header_attribute(name, param) || create_entry_item(name,param)
       end
     end
 
@@ -37,10 +38,8 @@ module Cvme
       @groups.last.entries << Entry.new(param)
     end
 
-    def create_header(name, param)
-      if Header.attributes.include?(name)
-        head.send("#{name}=", param) 
-      end
+    def update_header_attribute(name, param)
+      head.send("#{name}=", param) if @groups.empty? 
     end
      
     def create_entry_item(name,param)

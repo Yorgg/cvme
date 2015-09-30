@@ -1,5 +1,5 @@
 module Cvme
-  class Group < Document
+  class Group
     attr_accessor :name, :entries
     def initialize(title)
       @name = title

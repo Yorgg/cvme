@@ -1,5 +1,5 @@
 module Cvme
-  class Entry < Document
+  class Entry
     attr_accessor :name, :info
     def initialize(title, &block)
       @name = title

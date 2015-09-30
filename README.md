@@ -95,14 +95,14 @@ Entries are items that go inside a group.
 For example:
 
 ```ruby
-  group 'Work experience' do  
-    entry 'Captain of the USS Stargazer' do
-      date '2333-2356'
-      description 'Commanding officer on the USS Stargazer'
-      b1 'Defended the Stargazer from over 12 Cardassian attacks'
-      b2 'Managed relations with the Cardassians and Klingons' 
-    end
+group 'Work experience' do  
+  entry 'Captain of the USS Stargazer' do
+    date '2333-2356'
+    description 'Commanding officer on the USS Stargazer'
+    b1 'Defended the Stargazer from over 12 Cardassian attacks'
+    b2 'Managed relations with the Cardassians and Klingons' 
   end
+end
 ```
 
 There are *three reserved methods* inside the Entry block:
@@ -113,7 +113,7 @@ There are *three reserved methods* inside the Entry block:
 
 **b1, b2, b3, b4, b4 (and so on...)** => for bullet points
 
-You can also add any other method name and it will be treated as a description. 
+You can also use any other method name and it will be treated as a description. 
 
 
 ###Full Example:
