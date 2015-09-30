@@ -1,19 +1,35 @@
-require_relative  'cvme/version'
-require_relative  'document'
-require_relative  'group'
-require_relative  'header'
-require_relative  'entry'
+require 'document'
+require 'group'
+require 'header'
+require 'entry'
 require 'erb'
 
 module Cvme
-  def self.create(&block)
-  	doc = Document.new(&block)
-  	template = File.open("lib/template.html.erb", 'r')
-  	erb = ERB.new(template.read)
-  	template.close
-  	html = File.open('lib/cv.html', 'w')
-  	html.puts erb.result(doc.get_binding)
-  	html.close
-  	doc #return document (so tests can work)
+  def self.create(creation_path, template_name, &block)
+  	doc = Document.new(&block) #runs through the nested blocks and creates
+  							               #Document, Header, Group and Entry objects
+    
+    template = create_template(get_path "cvme/#{template_name}.html.erb")
+    create_html(doc, creation_path, template) #generates the html file
+    doc #return document for unit testing
+  end
+  
+  private
+
+  def self.get_path(name)
+    File.join( File.dirname(__FILE__), name )
+  end
+
+  def self.create_template(path)
+    template = File.open(path, 'r')
+    erb = ERB.new(template.read)
+    template.close
+    erb
+  end
+  
+  def self.create_html(doc, path, template)
+    html = File.open(path, 'w')
+    html.puts template.result(doc.get_binding)
+    html.close
   end
 end

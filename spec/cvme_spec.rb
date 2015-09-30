@@ -22,7 +22,7 @@ describe Cvme do
     expect(document.head.email).to eq    'frank@gmail.com'
     expect(document.head.address).to eq  '8888 10th ave'
     expect(document.head.city).to eq     'Peace Ville'
-    expect(document.head.province).to eq 'BC'
+    expect(document.head.state).to eq 'BC'
     expect(document.head.phone).to eq    '778999888'
   end
 

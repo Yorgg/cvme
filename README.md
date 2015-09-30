@@ -1,8 +1,10 @@
 # Cvme
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cvme`. To experiment with that code, run `bin/console` for an interactive prompt.
+Cvme is a simple DSL that generates CV/resumé templates in HTML.  
 
-TODO: Delete this and the text above, and describe your gem
+The generated HTML page can then be easily downloaded to PDF by a web browser or other software.
+
+Check out an [example](https://www.google.com) of the output.   
 
 ## Installation
 
