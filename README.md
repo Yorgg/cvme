@@ -31,13 +31,15 @@ Or install it yourself as:
 
 After installing the gem, create a new .rb file and require the gem:
 
-```require 'cvme'```
+`require 'cvme'`
 
 Next, call the create method on the Cvme module:
 
-```Cvme.create(html, 'default') do 
+```
+Cvme.create(html, 'default') do 
    
-   end```
+end
+```
 
 The **first argument** is the path of the outputted HTML file.
 For example: `html = '/Users/user/desktop/cv.html'` would create the file on the user's desktop. 
