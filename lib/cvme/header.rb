@@ -1,20 +1,18 @@
 module Cvme
   class Header < Document
-  	TYPE = [:user, 
-  		    :address,
-  		    :city,
-  		    :state,
-  		    :country, 
-  		    :phone, 
-  		    :email 
-  		   ]
-    
-  	attr_accessor *TYPE
+    TYPE = [:user, 
+            :address,
+            :city,
+            :state,
+            :country, 
+            :phone, 
+            :email 
+  		     ]
+    attr_accessor *TYPE
+    def initialize
+    end	
 
-  	def initialize
-  	end	
-
-  	def self.attributes
+    def self.attributes
       TYPE
     end
   end

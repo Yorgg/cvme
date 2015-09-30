@@ -1,22 +1,22 @@
 require 'cvme'
 
-#Choose a path for the location of outputted HTML file.
+#Choose a path for outputted HTML file.
 #For example: html_out = '/Users/user/desktop/cv.html'
 html = ''
 
-#If you create another template, change the template name.
+#Change the template if you want to use another template.
 #Otherwise leave it as default.
 template = 'default'
  
 Cvme.create(html, template) do 
   header do 
-    user     'Jean Luc Picard'
-    email    'jean@gmail.com'
-    address  '12 Rue de montagne'
-    city     'La Barre'
-    state    'Franche-Comté'
-    country  'France'
-    phone    '1286493820'
+    user    'Jean Luc Picard'
+    email   'jean@gmail.com'
+    address '12 Rue de montagne'
+    city    'La Barre'
+    state   'Franche-Comté'
+    country 'France'
+    phone   '1286493820'
   end
 
   group 'Work experience' do  

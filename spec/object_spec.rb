@@ -40,8 +40,4 @@ describe Object do
     expect(document.groups.first.entries.last.info[:date]).to eq '2001-2003'
     expect(document.groups.first.entries.last.info[:description]).to eq 'picked up garbage'
   end
-
-  it 'creates an entry inside the group' do
-  end
-  
 end

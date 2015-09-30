@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'html' do
   
   let(:document) {document1()}
-  let(:file_content) { File.read('cv.html') }
+  let(:file_content) { File.read('test_cv.html') }
     
   it "creates header" do
     expect(file_content).to include('Franky Jones')

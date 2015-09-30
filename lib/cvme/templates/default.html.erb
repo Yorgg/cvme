@@ -43,42 +43,42 @@
           <h1><%= @head.user %></h1>
         </div>
         <div class="col-right">
-	      <p><%= @head.address %></p>
-	      <p><%= @head.city %>, <%= @head.state %>, <%=@head.country %></p>
- 	      <p><%= @head.phone %></p>
- 	      <p><%= @head.email %></p>
-  	    </div>
- 	  </div>
- 	  <br>
+        <p><%= @head.address %></p>
+        <p><%= @head.city %>, <%= @head.state %>, <%=@head.country %></p>
+        <p><%= @head.phone %></p>
+        <p><%= @head.email %></p>
+        </div>
+      </div>
+      <br>
     </header>
  
     <% @groups.each do  |group| %>
     
     <div class="row">
-	  <div class="col-left">
+    <div class="col-left">
         <h2> <%= group.name %> </h2>
       </div>
 
       <div class="col-right">
         <hr>
         <% group.entries.each do  |entry| %>
-    	  <p class="title"><%=entry.name %> </p>
+          <p class="title"><%=entry.name %> </p>
           <div class="details">
-    	    <% entry.info.each do |name, text| %>
-    	      <% if name == :date %>
-                <p class="date"><%= text %></p>
-              <% elsif (/b\d+/ =~ name.to_s) %>
-    	        <ul> <li><%=text%></li></ul>
-    	      <% elsif name == :description %>
-    	        <p class="description"><%=text%></p>
-    	      <% else %>
-    	      <p class="description"><%=text%></p>
-    	      <% end %>
-    	    <% end %>
-    	  </div>
-	    <% end %>
-	  </div>	 
-	<% end %>
+          <% entry.info.each do |name, text| %>
+            <% if name == :date %>
+              <p class="date"><%= text %></p>
+            <% elsif (/b\d+/ =~ name.to_s) %>
+              <ul> <li><%=text%></li></ul>
+            <% elsif name == :description %>
+              <p class="description"><%=text%></p>
+            <% else %>
+              <p class="description"><%=text%></p>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>	 
+  <% end %>
     </div>
   </div>
   </body>

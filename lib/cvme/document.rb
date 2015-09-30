@@ -1,18 +1,18 @@
 module Cvme 
   class Document
-  	attr_accessor :head, :groups 
-  	def initialize(*params, &block)
-  	  @head  = Header.new
-  	  @groups  = []
-  	  instance_eval &block
-   	end
+    attr_accessor :head, :groups 
+    def initialize(*params, &block)
+      @head    = Header.new
+      @groups  = []
+      instance_eval &block
+    end
 
-  	def get_binding
-  	  binding
-  	end
+    def get_binding
+      binding
+    end
 
-  	def method_missing(name, *params, &block)
-  	  param = params.first
+    def method_missing(name, *params, &block)
+      param = params.first
       case name
       when /header/ then block.call
       when /group/  then create_group(param); block.call
@@ -35,10 +35,10 @@ module Cvme
 
     def create_header(name, param)
       head.send("#{name}=", param) if Header.attributes.include?(name)
-  	end
+    end
      
     def create_entry_item(name,param)
-  	  @groups.last.entries.last.info[name] = param
-  	end
+      @groups.last.entries.last.info[name] = param
+    end
   end
 end
