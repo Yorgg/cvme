@@ -1,11 +1,10 @@
-# Cvme
+CVME is a simple DSL that generates HTML CV/resume templates.  
 
-Cvme is a simple DSL that generates CV/resumé templates in HTML.  
+The generated HTML page can then be converted to PDF by a web browser or other software.
 
-The generated HTML page can then be easily downloaded to PDF by a web browser or other software.
+Here is an [example of the code you would write](https://github.com/Yorgg/cvme/blob/master/sample.rb) that generates the HTML. 
 
-Here is a sample document: [example](https://github.com/Yorgg/cvme/blob/master/sample.rb) 
-And here is the outputted html: [example](https://htmlpreview.github.io/?https://gist.githubusercontent.com/Yorgg/1f578894933a7d2ded47/raw/c86186f21566c2d90f63e9c490bf8761f5ae2b47/CVTemplate.html) 
+And here is [the html that it generates](https://htmlpreview.github.io/?https://gist.githubusercontent.com/Yorgg/1f578894933a7d2ded47/raw/c86186f21566c2d90f63e9c490bf8761f5ae2b47/CVTemplate.html) 
 
 ## Installation
 
