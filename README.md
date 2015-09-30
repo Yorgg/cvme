@@ -33,18 +33,19 @@ After installing the gem, create a new .rb file and require the gem:
 
 ```require 'cvme'```
 
-The Cvme module has a create method which accepts a block:
+Next, call the create method on the Cvme module:
 
-```require 'cvme'```
-
-   Cvme.create(html, 'default') do 
+```Cvme.create(html, 'default') do 
    
    end```
 
-The first argument is the path of the outputted HTML file.
+The **first argument** is the path of the outputted HTML file.
 For example: `html = '/Users/user/desktop/cv.html'` would create the file on the user's desktop. 
 
-The second argument is the name of the template you want to use.  Leave this as default unless you create your own template in the templates directory:  'lib/cvme/templates'
+The **second argument** is the name of the template you want to use.  Leave this as default unless you create your own template in the templates directory:  `lib/cvme/templates`
+
+The **block** is where your code will go.
+
 
 ###Header (personal info)
 
@@ -107,12 +108,17 @@ For example:
 Reserved methods inside the Entry block:
 
 **date** => the date, or start and end dates of the entry.
+
 **description** => for text  
+
 **b1, b2, b3, b4, b4 (and so on...)** => for bullet points
 
 You can also add any other method name and it will be treated as a description. 
 
-###Example:
+
+###Full Example:
+
+[the html it generates](https://htmlpreview.github.io/?https://gist.githubusercontent.com/Yorgg/1f578894933a7d2ded47/raw/c86186f21566c2d90f63e9c490bf8761f5ae2b47/CVTemplate.html) 
 
 ```
 require 'cvme'
