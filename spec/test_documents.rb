@@ -1,6 +1,6 @@
 module Cvme
   def document1
-  Cvme.create('lib/cv.html', 'default') do 
+  Cvme.create('lib/cvme/cv.html', 'default') do 
 	header do 
       user     'Franky Jones'
       email    'frank@gmail.com'

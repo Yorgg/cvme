@@ -1,15 +1,16 @@
-require 'document'
-require 'group'
-require 'header'
-require 'entry'
+require 'cvme/document'
+require 'cvme/group'
+require 'cvme/header'
+require 'cvme/entry'
 require 'erb'
 
 module Cvme
   def self.create(creation_path, template_name, &block)
   	doc = Document.new(&block) #runs through the nested blocks and creates
   							               #Document, Header, Group and Entry objects
-    
-    template = create_template(get_path "cvme/#{template_name}.html.erb")
+                               
+    template_path = "cvme/templates/#{template_name}.html.erb"
+    template = create_template(get_path template_path)
     create_html(doc, creation_path, template) #generates the html file
     doc #return document for unit testing
   end
