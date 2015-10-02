@@ -66,7 +66,6 @@ There are currently 7 reserved methods (user, email etc...) that you can use as 
 
 You can add more methods in the header.rb file: `lib/cvme/header.rb`
 
-**Note:** these methods are reserved, do not use them outside the header block.  
 
 ###Group
 
