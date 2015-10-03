@@ -108,11 +108,11 @@ There are *three reserved methods* inside the Entry block:
 
 **date** => the date, or start and end dates of the entry.
 
+**url** => the url address
+
 **description** => for text  
 
-**b1, b2, b3, b4, b4 (and so on...)** => for bullet points
-
-You can also use any other method name and it will be treated as a description. 
+**b1, b2, b3, b4, b4... b20** => for bullet points
 
 
 ###Full Example:
@@ -161,7 +161,7 @@ Cvme.create(html, template) do
     end  
     entry 'Archeology: Uncovered a 21st century DSL written in Ruby' do
       date '2355'
-      url  "<a href='https://github.com/Yorgg/cvme'>view</a>"
+      url  'https://github.com/Yorgg/cvme>view</a>'
     end
   end
 
