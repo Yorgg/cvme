@@ -2,7 +2,7 @@ require 'cvme'
 
 #Choose a path for outputted HTML file.
 #For example: html = '/Users/user/desktop/cv.html'
-html = ''
+html = '/Users/yorg/desktop/cv.html'
 
 #Change the template if you want to use another template.
 #Otherwise leave it as default.
