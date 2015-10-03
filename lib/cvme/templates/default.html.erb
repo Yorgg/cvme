@@ -52,7 +52,7 @@
       <br>
     </header>
  
-    <% @groups.each do  |group| %>
+    <% @groups.each do |group| %>
     
     <div class="row">
       <div class="col-left">
@@ -61,7 +61,7 @@
 
       <div class="col-right">
         <hr>
-        <% group.entries.each do  |entry| %>
+        <% group.entries.each do |entry| %>
           <p class="title"><%=entry.name %> </p>
           <div class="details">
           <% entry.info.each do |name, text| %>
@@ -71,6 +71,8 @@
               <ul><li><%=text%></li></ul>
             <% elsif name == :description %>
               <p class="description"><%=text%></p>
+            <% elsif name == :url %>
+              <a href= <%=text%>> <%=text%> </a>
             <% else %>
               <p class="description"><%=text%></p>
             <% end %>

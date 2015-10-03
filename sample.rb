@@ -44,7 +44,7 @@ Cvme.create(html, template) do
     end  
     entry 'Archeology: Uncovered a 21st century DSL written in Ruby' do
       date '2355'
-      url  "<a href='https://github.com/Yorgg/cvme'>view</a>"
+      url  'https://github.com/Yorgg/cvme'
     end
   end
 

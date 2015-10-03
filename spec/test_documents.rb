@@ -21,6 +21,7 @@ module Cvme
         entry 'Garbage Man' do
           date '2001-2003'
           description 'picked up garbage'
+          url 'www.test.com'
         end
       end
 

@@ -39,5 +39,6 @@ describe Object do
     expect(document.groups.first.entries.last.name).to eq 'Garbage Man'
     expect(document.groups.first.entries.last.info[:date]).to eq '2001-2003'
     expect(document.groups.first.entries.last.info[:description]).to eq 'picked up garbage'
+    expect(document.groups.first.entries.last.info[:url]).to eq 'www.test.com'
   end
 end

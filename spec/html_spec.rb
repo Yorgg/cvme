@@ -21,6 +21,7 @@ describe 'html' do
     expect(file_content).to include 'Basic cleaning duties'
     expect(file_content).to include 'used windex'
     expect(file_content).to include 'waxed floors'
+    expect(file_content).to include "<a href= www.test.com> www.test.com </a>"
   end
 
   it "creates projects" do
