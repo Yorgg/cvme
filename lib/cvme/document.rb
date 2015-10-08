@@ -42,19 +42,19 @@ module Cvme
     end
 
     def create_group(param)
-      @groups << Group.new(param)
+      groups << Group.new(param)
     end
 
     def create_entry(param)
-      @groups.last.entries << Entry.new(param)
+      groups.last.entries << Entry.new(param)
     end
 
     def create_entry_item(name,param)
-      @groups.last.entries.last.info[name] = param
+      groups.last.entries.last.info[name] = param
     end
 
     def update_header_attribute(name, param)
-      head.send("#{name}=", param) if @groups.empty? 
+      head.send("#{name}=", param) if groups.empty? 
     end
   end
 end
