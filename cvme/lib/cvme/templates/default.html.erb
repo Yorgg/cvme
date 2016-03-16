@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= @head.user %> - Resume</title>
+    <!--if you want to use the css file instead:
+    <link rel="stylesheet" href="stylesheet.css">-->
+  </head>
+
+  <style>
+    /* Global styling */
+    body {margin: 0 0;font-family: Arial, Helvetica, sans-serif;}
+    li {margin: 0 0;}
+    ul {margin: 0 0;padding: 0 12;}
+    hr {color: #fff;margin-bottom: 5px;margin-top: 23px;}
+    p {font-size: 1.0em;margin-top: 5px;margin-bottom: 1px;}
+    h1 {font-size: 1.4em;margin-right: 20px;}
+    h2 {font-size: 1.1em;margin-top: 14px;margin-right: 20px;}
+    /* Structure */
+    .container {width: 850px;margin: 0 auto;padding: 0 20}
+    .top {margin-bottom: 20px;height: 10px;background-color: #FDC72F;width: 100%;display: block;}
+    .row {clear: both;margin-bottom: 20px;}
+    .col-left {width: 22%;display: inline-block;padding-left}
+    .col-right {width: 78%;float: right;}
+    /* Header styling */
+    header {margin-bottom: 20px;color: #666;}
+    header p {margin: 8 0;}
+    /* Entry styling */
+    .title {display: inline;font-size: 1.0em;font-weight: 700;margin: 0 0;}
+    .details  {margin-bottom: 30px;}
+    .date {margin-top: -20px;float: right;display: inline;color: #999;}
+    .details p {margin-bottom: 10px;}
+  </style>
+  
+  <body>
+  <div class="container">
+    <div class="top" >
+    </div>
+
+    <header>
+      <div class="row">
+        <div class="col-left">
+          <h1><%= @head.user %></h1>
+        </div>
+        <div class="col-right">
+        <p><%= @head.address %></p>
+        <p><%= @head.city %>, <%= @head.state %>, <%=@head.country %></p>
+        <p><%= @head.phone %></p>
+        <p><%= @head.email %></p>
+        </div>
+      </div>
+      <br>
+    </header>
+ 
+    <% @groups.each do |group| %>
+    
+    <div class="row">
+      <div class="col-left">
+        <h2> <%= group.name %> </h2>
+      </div>
+
+      <div class="col-right">
+        <hr>
+        <% group.entries.each do |entry| %>
+          <p class="title"><%=entry.name %> </p>
+          <div class="details">
+          <% entry.info.each do |name, text| %>
+            <% if name == :date %>
+              <p class="date"><%= text %></p>
+            <% elsif (/b\d+/ =~ name.to_s) %>
+              <ul><li><%=text%></li></ul>
+            <% elsif name == :description %>
+              <p class="description"><%=text%></p>
+            <% elsif name == :url %>
+              <a href= "<%=text%>"> <%=text%> </a>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>	 
+  <% end %>
+    </div>
+  </div>
+  </body>
+</html>
